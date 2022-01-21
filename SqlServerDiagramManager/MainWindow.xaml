@@ -1,0 +1,58 @@
+﻿<Window x:Class="SqlServerDiagramManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SqlServerDiagramManager"
+        mc:Ignorable="d"
+        Title="SQL Server Diagram Manager"
+        Height="300"
+        Width="800">
+    <TabControl>
+        <TabItem Header="Save diagram from database to file">
+            <DockPanel Margin="10" LastChildFill="True">
+                <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
+                    <Button MinWidth="70" Margin="10" Padding="10" DockPanel.Dock="Right" Click="On_DownloadDiagramClick" Content="Save diagram to file" />
+                </DockPanel>
+                <StackPanel>
+                    <DockPanel LastChildFill="True">
+                        <Label MinWidth="150"  Content="Input connection string:" />
+                        <TextBox MinWidth="170" Text="{Binding Path=InputConnectionstring, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                    <DockPanel LastChildFill="True">
+                        <Label MinWidth="150"  Content="Input diagram name:" />
+                        <TextBox MinWidth="170" Text="{Binding Path=InputDiagramName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                    <DockPanel LastChildFill="True">
+                        <Label MinWidth="150" Content="Output file:" />
+                        <Button DockPanel.Dock="Right" Padding="10,0" ToolTip="Choose file..." Click="ChooseOutputFile_Click">...</Button>
+                        <TextBox MinWidth="170" Text="{Binding Path=OutputFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                </StackPanel>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Upload diagram from file to database">
+            <DockPanel Margin="10" LastChildFill="True">
+                <DockPanel DockPanel.Dock="Bottom" LastChildFill="False">
+                    <Button MinWidth="70" Margin="10" Padding="10" DockPanel.Dock="Right" Click="On_UploadDiagramClick" Content="Uploadoad diagram to database" />
+                </DockPanel>
+                <StackPanel>
+                    <DockPanel LastChildFill="True">
+                        <Label MinWidth="150" Content="Input file:" />
+                        <Button DockPanel.Dock="Right" Padding="10,0" ToolTip="Choose file..." Click="ChooseInputFile_Click">...</Button>
+                        <TextBox MinWidth="170" Text="{Binding Path=InputFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                    <DockPanel LastChildFill="True">
+                        <Label MinWidth="150"  Content="Output connection string:" />
+                        <TextBox MinWidth="170" Text="{Binding Path=OutputConnectionstring, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+                    <DockPanel LastChildFill="True">
+                        <Label MinWidth="150"  Content="Output diagram name:" />
+                        <TextBox MinWidth="170" Text="{Binding Path=OutputDiagramName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </DockPanel>
+
+                </StackPanel>
+            </DockPanel>
+        </TabItem>
+    </TabControl>
+</Window>
