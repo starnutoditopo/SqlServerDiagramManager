@@ -8,6 +8,10 @@ Download the E-R binary data from SQL server to a local file:
 Upload the E-R binary data from a local file to SQL server:
 ![Upload the E-R binary data from a local file to SQL server](Documentation/ScreenShot02.png)
 
+## SQL Requirements
+
+The ```sysdiagrams``` table must already exist on the database, as this utility is not able to create it.
+
 ## Build and run
 
 This utility is a simple WPF application, built with C# in .Net 6.0
